@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300;500&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <title>Editar Usuario</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      font-family: Poppins, sans-serif;
+    }
+    h1 {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 500px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .header a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    .header a:hover {
+      color: #0056b3;
+    }
+
+    .edit-form {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button[type="submit"] {
+      background-color: black;
+      font-family: Poppins, sans-serif;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #9FC7AA;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="/users"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+          class="bi bi-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+        </svg> Regresar</a>
+    </div>
+    <h1>Editar Usuario</h1>
+    <div class="edit-form">
+      <form action="/users/update/<%= user._id %>" method="POST">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" value="<%= user.name %>" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= user.email %>" required>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password"
+          placeholder="Dejar en blanco para mantener la misma contraseña">
+        <button type="submit">Actualizar usuario</button>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
